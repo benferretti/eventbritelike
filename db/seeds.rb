@@ -21,11 +21,11 @@ users = Array.new
   user = User.create(
   first_name: first_name,
   last_name: last_name,
-  email: first_name + last_name + "@yopmail.com",
+  email: first_name.downcase.unicode_normalize(:nfkd).encode('ASCII', replace: '') + last_name.downcase.unicode_normalize(:nfkd).encode('ASCII', replace: '') + "@yopmail.com",
   encrypted_password: "Azerty"
   )
   users << user
-  puts "Seeding User #{user.first_name} #{user.last_name}"
+  puts "Seeding User #{user.first_name} #{user.last_name} #{user.email}"
 end
 
 puts "------------"
@@ -38,7 +38,7 @@ puts "------------"
     duration: Faker::Number.between(from: 4, to: 30),
     description: Faker::Lorem.sentence(word_count: 8, supplemental: false, random_words_to_add: 4),
     price: Faker::Number.between(from: 1, to: 1200),
-    user_id: users[rand(0..10)].id,
+    user_id: users[rand(0..9)].id,
     location: Faker::Address.city
     )
     if event.id != nil
@@ -49,7 +49,7 @@ end
 
 puts "------------"
 
-5.times do
+1.times do
     attendance = Attendance.create(
       user_id: users[rand(0..10)].id,
       event_id: events[rand(0..((events.size) -1))].id,
@@ -60,5 +60,3 @@ puts "------------"
     end
 end
 =end
-
-
