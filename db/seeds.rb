@@ -15,11 +15,13 @@ events = Array.new
 users = Array.new
 
 
-11.times do 
+1.times do 
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name  
   user = User.create(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
+  first_name: first_name,
+  last_name: last_name,
+  email: first_name + last_name + "@yopmail.com",
   encrypted_password: "Azerty"
   )
   users << user
@@ -28,7 +30,7 @@ end
 
 puts "------------"
 
-
+=begin
 100.times do 
     event = Event.create(
     start_date: Faker::Date.between(from: '2020-07-23', to: '2020-09-25'),
@@ -57,6 +59,6 @@ puts "------------"
       puts "Seeding Attendance #{attendance.id}"
     end
 end
-
+=end
 
 
