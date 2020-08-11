@@ -21,8 +21,8 @@ users = Array.new
   user = User.create(
   first_name: first_name,
   last_name: last_name,
-  email: first_name.downcase.unicode_normalize(:nfkd).encode('ASCII', replace: '') + last_name.downcase.unicode_normalize(:nfkd).encode('ASCII', replace: '') + "@yopmail.com",
-  encrypted_password: "Azerty"
+  email: (first_name.downcase.unicode_normalize(:nfkd).encode('ASCII', replace: '') + last_name.downcase.unicode_normalize(:nfkd).encode('ASCII', replace: '') + "@yopmail.com").to_s,
+  password: "Azerty"
   )
   users << user
   puts "Seeding User #{user.id} #{user.first_name} #{user.last_name} #{user.email}"

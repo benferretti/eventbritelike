@@ -1,0 +1,74 @@
+<br><br>
+
+<div class ='text-center'>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Utilisateur :</h5>
+    <h5 class="card-title"><%= @user.first_name %> <%= @user.last_name %></h5>
+    <p class="card-title"><strong></strong> <%= @user.email %></p>
+  </div>
+</div>
+</div>
+
+
+<br>
+<h1 class="h3 mb-3 font-weight-normal text-center">Les events de cet utilisateur :</h1>
+<br>
+<% @events.each do |event| %>
+
+    <% if event.user_id == @user.id %>
+
+        <div class="container">
+            <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary"><%= event.id  %>.  <%= event.title  %></h6>
+                <div class="dropdown no-arrow">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                    <div class="dropdown-header">Organisateur :</div>
+                
+                    <a<%= link_to @user.email, user_path(:id => @user.id), class: "dropdown-item" %></a>
+                </div>
+                </div>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="chart-area">
+                <p class="card-text"><%= event.description  %></p>
+                <p class="card-text">Débute le <%= event.start_date.to_date  %></p>
+                <footer class="blockquote-footer"><%= event.duration  %> jours / <%= event.price  %> € / <%= event.location  %></footer>
+                <br>        
+        
+        
+        
+                <%= link_to "En savoir plus", event_path(:id => event.id), class: 'btn btn-primary' %>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    <% end %>
+<% end %>
+
+
+<%
+=begin%>
+create_table "users", force: :cascade do |t|
+    t.text "description"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+  <%
+=end %>

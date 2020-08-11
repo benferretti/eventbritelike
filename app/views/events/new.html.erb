@@ -1,2 +1,67 @@
 <h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+  <form action= <%= events_path %> method="POST">
+  <h1 class="h3 mb-3 font-weight-normal text-center">Nouveau event</h1>
+  <br>
+    <div class="form-group">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <label for="Title">Saisis ici le titre de ton event :</label>
+      <input type="text" class="form-control"  aria-describedby="authorHelp" placeholder="Entrez ici le titre de votre event" name='title'>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="Description">Saisis ici la description de votre event:</label>
+      <textarea class="form-control" rows="3" placeholder="Entrez ici la description de votre event" name='description'></textarea> 
+    </div>
+    <br>
+    <div class="form-group">
+    <label for="Location">Saisis ici la ville de votre event:</label>
+    <input type="text" class="form-control" placeholder="Entrez ici le lieu de votre event" name='location'> 
+  </div>
+
+  <br>
+
+    <div class="form-row">
+        <div class="col">
+        <div class="form-group">
+          <label for="Price">Prix total:</label>
+          <input type="text" class="form-control" placeholder="Prix en euros" name='price'></input> 
+        </div>
+        
+        </div>
+        
+        <div class="col">
+          <div class="form-group">
+            <label for="Duration">Durée (en jours):</label>
+            <select class="form-control" name='duration'>
+              <option>5</option>
+              <option>10</option>
+              <option>15</option>
+              <option>20</option>
+              <option>25</option>
+              <option>30</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="Date">Date de début :</label>
+            <input class="form-control" type="date" value=<%= Time.now %> id="example-date-input" name='start_date'>
+          </div>
+        </div>
+      </div>
+
+
+
+  
+      <br>
+    <button type="submit" class="btn btn-lg btn-primary btn-block">Valider</button>
+  </form>
+</div>
+
+
+
