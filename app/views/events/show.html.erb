@@ -21,8 +21,8 @@
       <ul>
         
         <li>Son organisateur : <%= link_to @event.user.email , user_path(:id => @event.user.id)%></li>
-        
-        <li>Dates : <%= @event.start_date.to_date %> --> <%= (@event.start_date + (@event.duration * 86400)).to_date %> (<%= @event.duration%> jours)</li>
+        <li>Nombre d'inscrits: <%= @count %></li>
+        <li>Dates : <%= @event.start_date.to_date %> --> <%= @end_date %> (<%= @event.duration%> jours)</li>
         <li>Prix total : <%= @event.price %> euros</li>
         <li>Lieu : <%= @event.location %></li>
         <li>Créé le : <%= @event.created_at.to_date %></li>

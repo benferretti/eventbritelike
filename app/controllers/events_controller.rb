@@ -9,6 +9,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @count = @event.attendances.count
+    @end_date = (@event.start_date + (@event.duration * 86400)).to_date
   end
 
   def new
@@ -34,11 +36,6 @@ class EventsController < ApplicationController
   end
 
   def destroy
-  end
-
-  def self.end_date
-    event = Event.find(params[:id])
-    return ((event.start_date + (event.duration * 86400)).to_date)
   end
 
 end
