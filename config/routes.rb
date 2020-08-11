@@ -1,18 +1,11 @@
 Rails.application.routes.draw do
-  get 'events/index'
-  get 'events/show'
-  get 'events/new'
-  get 'events/create'
-  get 'events/edit'
-  get 'events/update'
-  get 'events/destroy'
-  get 'static_pages/index'
-  get 'static_pages/secret'
+  
   devise_for :users
   resources :users, :only => [:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'events#index'
 
   resources :events
+  resources :static_pages
   
 end
