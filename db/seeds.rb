@@ -25,7 +25,7 @@ users = Array.new
   encrypted_password: "Azerty"
   )
   users << user
-  puts "Seeding User #{user.first_name} #{user.last_name} #{user.email}"
+  puts "Seeding User #{user.id} #{user.first_name} #{user.last_name} #{user.email}"
 end
 
 puts "------------"

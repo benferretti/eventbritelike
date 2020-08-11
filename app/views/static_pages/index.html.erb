@@ -1,0 +1,37 @@
+
+<header class="bg-primary text-white">
+<div class="container text-center">
+  <h1>Welcome to Eventbrite</h1>
+  <p class="lead">Bienvenue sur (presque) Eventbrite. J'ai fait mon possible pour te faciliter la vie lors de ta correction !</p>
+</div>
+</header>
+
+<div class="container text-center">
+  <% if user_signed_in? %>
+    <li>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    </li>
+
+    <li>
+      Voici ton email : <%= current_user.email %>
+    </li>
+
+    <li>
+      <%= link_to "Secret page", static_pages_secret_path %>
+    </li>
+
+    <li>
+      <%= link_to "Edit email / password", edit_user_registration_path %>
+    </li>
+
+  <% else %>
+    <li>    
+      <%= link_to "Sign in", new_user_session_path %>
+    </li>
+
+    <li>
+      <%= link_to "Sign up", new_user_registration_path %>
+    </li>
+
+  <% end %>
+</div>

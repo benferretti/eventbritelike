@@ -69,3 +69,5 @@ gem 'rename', group: :development
 gem 'rails-erd', group: :development
 gem 'bootstrap', '~> 4.5.0'
 gem 'dotenv-rails'
+gem 'devise'
+gem 'jquery-rails'
