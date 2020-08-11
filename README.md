@@ -1,11 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Eventbrite by Benoit Ferretti
+
+Pour faire fonctionner :
+
+rails db:migrate 
+rails db:seed
+rails s
+
+:)
+
+App link : https://enventbritelike.herokuapp.com/
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version : ruby '2.5.1'
 
 * System dependencies
 
