@@ -10,7 +10,10 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @count = @event.attendances.count
+    @user = User.find(current_user.id)
     @end_date = (@event.start_date + (@event.duration * 86400)).to_date
+    @attendances = Attendance.exists?(event_id: @event.id, user_id: @user.id)
+    @administrator = Event.exists?(id: params[:id], user_id: @user.id)
   end
 
   def new
@@ -37,5 +40,7 @@ class EventsController < ApplicationController
 
   def destroy
   end
+
+  
 
 end

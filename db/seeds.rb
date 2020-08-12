@@ -15,7 +15,7 @@ events = Array.new
 users = Array.new
 
 
-30.times do 
+5.times do 
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name  
   user = User.create(
@@ -39,7 +39,7 @@ puts "------------"
     title: Faker::Lorem.sentence(word_count: 5, supplemental: false, random_words_to_add: 5),
     duration: Faker::Number.between(from: 4, to: 30),
     description: Faker::Lorem.sentence(word_count: 40, supplemental: false, random_words_to_add: 10),
-    price: Faker::Number.between(from: 1, to: 1200),
+    price: Faker::Number.between(from: 0, to: 2),
     user_id: users[rand(0..((users.size) -1))].id,
     location: Faker::Address.city
     )
@@ -51,7 +51,7 @@ end
 
 puts "------------"
 
-50.times do
+100.times do
     attendance = Attendance.create(
       user_id: users[rand(0..4)].id,
       event_id: events[rand(0..((events.size) -1))].id,

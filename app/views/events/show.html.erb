@@ -7,6 +7,20 @@
     <div class="col-lg-8 mx-auto">
       <h2><%= @event.title %> à <%= @event.location %></h2>
       <p class="lead"><%= @event.description %></p>
+      <br>
+      <div class="text-center">
+        <%if @administrator == true%>
+        <%= link_to "Administration", event_attendances_path(:event_id => @event.id ), :class => "btn btn-primary btn-lg"  %>
+        <%elsif @attendances == false && @event.price == 0 %>
+        <%= link_to "Je participe gratuitement", event_attendances_path(:event_id => @event.id ), method: :post, :class => "btn btn-primary btn-lg"  %>
+  
+        <%elsif @attendances == false && @event.price != 0 %>
+        <%= link_to "Je participe", new_event_attendance_path(:event_id => @event.id ), :class => "btn btn-primary btn-lg"  %>
+  
+        <%else%> 
+        <%= link_to "Déjà inscrit", user_path(:id => @user), :class => "btn btn-primary btn-lg"  %>
+        <%end%>
+      </div>
     </div>
   </div>
 </div>
@@ -28,6 +42,30 @@
         <li>Créé le : <%= @event.created_at.to_date %></li>
         <li>Sa référence : Event N°<%= @event.id %></li>
       </ul>
+      <br>
+      <div class="text-center">
+      <br>
+      <%if @administrator == true%>
+      <%= link_to "Administration", user_path(:id => @user), :class => "btn btn-primary btn-lg"  %>
+
+
+
+      <%elsif @attendances == false && @event.price == 0 %>
+      <%= link_to "Je participe gratuitement", event_attendances_path(:event_id => @event.id ), method: :post, :class => "btn btn-primary btn-lg"  %>
+
+      <%elsif @attendances == false && @event.price != 0 %>
+      <%= link_to "Je participe", new_event_attendance_path(:event_id => @event.id ), :class => "btn btn-primary btn-lg"  %>
+
+
+
+
+
+
+
+      <%else%> 
+      <%= link_to "Déjà inscrit", user_path(:id => @user), :class => "btn btn-primary btn-lg"  %>
+      <%end%>
+      </div>
     </div>
   </div>
 </div>

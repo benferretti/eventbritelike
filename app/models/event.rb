@@ -9,8 +9,8 @@ class Event < ApplicationRecord
     validates :start_date, presence: true
     validates :duration, numericality: { greater_than: 4, less_than_or_equal_to: 30 }
     validates :title, length: {minimum: 5, maximum: 140}, allow_blank: false
-    validates :description, length: {minimum: 20, maximum: 1000}, allow_blank: false
-    validates :price, numericality: { greater_than: 0, less_than_or_equal_to: 1000 }
+    validates :description, length: {minimum: 10, maximum: 1000}, allow_blank: false
+    validates :price, numericality: { greater_than: -1, less_than_or_equal_to: 1000 }
     validates :location, presence: true
 
 

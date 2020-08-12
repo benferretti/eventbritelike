@@ -1,0 +1,23 @@
+
+<br><br><br>
+
+<div class="container">
+        <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Liste des invités</h6>
+            
+<% @attendances.each do |attendance| %>
+    <% if attendance.event_id == @event.id %>
+
+    
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+            <div class="chart-area">
+            <p class="card-text"><%= attendance.user.first_name  %> <%= attendance.user.last_name  %> : <%= attendance.user.email  %></p>
+            </div>
+     
+       
+    <% end %>
+<% end %>
