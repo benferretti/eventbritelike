@@ -41,6 +41,9 @@ class EventsController < ApplicationController
   def destroy
   end
 
-  
+
+  def is_free?
+    puts "ok"
+  end
 
 end

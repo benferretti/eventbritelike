@@ -11,10 +11,10 @@
       <div class="text-center">
         <%if @administrator == true%>
         <%= link_to "Administration", event_attendances_path(:event_id => @event.id ), :class => "btn btn-primary btn-lg"  %>
-        <%elsif @attendances == false && @event.price == 0 %>
+        <%elsif @attendances == false && @event.price.zero? %>
         <%= link_to "Je participe gratuitement", event_attendances_path(:event_id => @event.id ), method: :post, :class => "btn btn-primary btn-lg"  %>
   
-        <%elsif @attendances == false && @event.price != 0 %>
+        <%elsif @attendances == false %>
         <%= link_to "Je participe", new_event_attendance_path(:event_id => @event.id ), :class => "btn btn-primary btn-lg"  %>
   
         <%else%> 
@@ -50,10 +50,10 @@
 
 
 
-      <%elsif @attendances == false && @event.price == 0 %>
+      <%elsif @attendances == false && @event.price.zero? %>
       <%= link_to "Je participe gratuitement", event_attendances_path(:event_id => @event.id ), method: :post, :class => "btn btn-primary btn-lg"  %>
 
-      <%elsif @attendances == false && @event.price != 0 %>
+      <%elsif @attendances == false %>
       <%= link_to "Je participe", new_event_attendance_path(:event_id => @event.id ), :class => "btn btn-primary btn-lg"  %>
 
 
