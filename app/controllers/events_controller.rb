@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :show, :edit, :create, :update] 
+  before_action :authenticate_user!, only: [:new, :show, :edit, :create, :update]
+  before_action :check_if_validated, only: [:show, :edit, :update] 
 
 
 
@@ -41,9 +42,11 @@ class EventsController < ApplicationController
   def destroy
   end
 
-
-  def is_free?
-    puts "ok"
+  def check_if_validated
+    @event = Event.find(params[:id])
+    if @event.validated == nil || @event.validated == false
+        flash[:danger] = "Vous ne pouvez pas consulter un événement non validé"
+        redirect_to events_path
+    end
   end
-
 end

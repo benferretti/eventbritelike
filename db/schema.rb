@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_08_13_074310) do
     t.text "description"
     t.integer "price"
     t.string "location"
+    t.boolean "validated"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

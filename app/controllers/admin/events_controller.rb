@@ -3,6 +3,7 @@ class Admin::EventsController < ApplicationController
 
     def index
         @events = Event.all
+        @events_to_validate = Event.all.find_by(validated: false)
     end
 
 

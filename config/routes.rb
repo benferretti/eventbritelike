@@ -32,6 +32,8 @@ Rails.application.routes.draw do
     resources :users, :events
   end
   get '/admin', to: 'admin#index'
+
+  resources :event_submissions, only: [:edit, :update]
   
   
 end
