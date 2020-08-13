@@ -1,7 +1,7 @@
 # README
 
 Eventbrite by Benoit Ferretti
-
+Pour le moment tout user peut modifier l'illustrationd des events (pour les tests)
 Pour faire fonctionner :
 
 rails db:migrate 
