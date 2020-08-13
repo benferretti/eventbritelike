@@ -1,0 +1,49 @@
+<br><br>
+
+<div class ='text-center'>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Utilisateur :</h5>
+    <h5 class="card-title"><%= @user.first_name %> <%= @user.last_name %></h5>
+    <p class="card-title"><strong></strong> <%= @user.email %></p>
+    <p class="card-title"><strong></strong> <%= @user.description %></p>
+    <%= link_to "Modifier son profil", edit_user_registration_path, class: 'btn btn-danger' %>
+  </div>
+</div>
+</div>
+
+
+<br>
+<h1 class="h3 mb-3 font-weight-normal text-center">Les events de cet utilisateur :</h1>
+<br>
+
+<div class="container">
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">En tant qu'organisateur :</h5>
+            <div class="list-group" id="list-tab" role="tablist">
+                <% @events.each do |event| %>
+                    <% if event.user_id == @user.id %>
+                        <%= link_to event.title, event_path(:id => event.id), class: "list-group-item list-group-item-action" %>
+                    <% end %>
+                <% end %>
+            </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">En tant que participant :</h5>
+            <div class="list-group" id="list-tab" role="tablist">
+                <% @attendances.each do |attendance| %>
+                    <% if attendance.user_id == @user.id %>
+                        <%= link_to attendance.event.title, event_path(:id => attendance.event.id), class: "list-group-item list-group-item-action" %>
+                    <% end %>
+                <% end %>
+            </div>
+      </div>
+    </div>
+  </div>

@@ -21,6 +21,7 @@ users = Array.new
   user = User.create(
   first_name: first_name,
   last_name: last_name,
+  is_admin: [true, false].sample,
   email: (first_name.downcase.unicode_normalize(:nfkd).encode('ASCII', replace: '') + last_name.downcase.unicode_normalize(:nfkd).encode('ASCII', replace: '') + "@yopmail.com").to_s,
   password: "Azerty"
   )
