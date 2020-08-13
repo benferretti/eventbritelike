@@ -26,6 +26,9 @@
         </div>
         </div>
     </div>
+    <%if event.avatar.attached?%>
+    <img class="img" <%= image_tag event.avatar, alt: 'illustration' %>
+    <% end %>
     <!-- Card Body -->
     <div class="card-body">
         <div class="chart-area">

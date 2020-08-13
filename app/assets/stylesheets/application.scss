@@ -1,3 +1,14 @@
 
 @import "bootstrap";
 
+img {
+    object-fit: cover;
+    height:240px; /* you can use % */
+    width: auto;
+}
+
+.img-event {
+    object-fit: cover;
+    height:400px; /* you can use % */
+    width: 100%;
+}

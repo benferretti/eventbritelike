@@ -1,6 +1,17 @@
 <h1>Events#show</h1>
 
 
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+<div class="carousel-inner">
+  <div class="carousel-item active">
+  <%if @event.avatar.attached?%>
+  <img class="img-event" <%= image_tag @event.avatar, alt: 'illustration' %>
+  <% end %>
+  </div>
+</div>
+</div>
+
+
 <section id="about">
 <div class="container">
   <div class="row">
@@ -72,20 +83,18 @@
 </section>
 
 
-
-<%
-=begin%>
-<!--
-    create_table "events", force: :cascade do |t|
-    t.datetime "start_date"
-    t.integer "duration"
-    t.string "title"
-    t.text "description"
-    t.integer "price"
-    t.string "location"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_events_on_user_id"
-<%
-=end %>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    
+      <%if @event.avatar.attached?%>
+      <%else%>
+        <p>Il n'y a pas encore d'illustration liée à cet utilisateur</p>
+      <%end%>
+      <h3>Changer d'illustration ?</h3>
+      <%= form_tag event_avatars_path(@event), multipart: true do %>
+        <%= file_field_tag :avatar %>
+        <%= submit_tag "mettre à jour" %>
+      <% end %>
+      </div>
+      </div>
+     
