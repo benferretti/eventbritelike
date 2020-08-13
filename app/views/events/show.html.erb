@@ -21,15 +21,15 @@
       <br>
       <div class="text-center">
         <%if @administrator == true%>
-        <%= link_to "Administration", event_attendances_path(:event_id => @event.id ), :class => "btn btn-primary btn-lg"  %>
+        <%= link_to "Administration", event_attendances_path(:event_id => @event.id ), :class => "btn btn-info btn-lg"  %>
         <%elsif @attendances == false && @event.price.zero? %>
-        <%= link_to "Je participe gratuitement", event_attendances_path(:event_id => @event.id ), method: :post, :class => "btn btn-primary btn-lg"  %>
+        <%= link_to "Je participe gratuitement", event_attendances_path(:event_id => @event.id ), method: :post, :class => "btn btn-info btn-lg"  %>
   
         <%elsif @attendances == false %>
-        <%= link_to "Je participe", new_event_attendance_path(:event_id => @event.id ), :class => "btn btn-primary btn-lg"  %>
+        <%= link_to "Je participe", new_event_attendance_path(:event_id => @event.id ), :class => "btn btn-info btn-lg"  %>
   
         <%else%> 
-        <%= link_to "Déjà inscrit", user_path(:id => @user), :class => "btn btn-primary btn-lg"  %>
+        <%= link_to "Déjà inscrit", user_path(:id => @user), :class => "btn btn-info btn-lg"  %>
         <%end%>
       </div>
     </div>
@@ -57,15 +57,15 @@
       <div class="text-center">
       <br>
       <%if @administrator == true%>
-      <%= link_to "Administration", user_path(:id => @user), :class => "btn btn-primary btn-lg"  %>
+      <%= link_to "Administration", user_path(:id => @user), :class => "btn btn-info btn-lg"  %>
 
 
 
       <%elsif @attendances == false && @event.price.zero? %>
-      <%= link_to "Je participe gratuitement", event_attendances_path(:event_id => @event.id ), method: :post, :class => "btn btn-primary btn-lg"  %>
+      <%= link_to "Je participe gratuitement", event_attendances_path(:event_id => @event.id ), method: :post, :class => "btn btn-info btn-lg"  %>
 
       <%elsif @attendances == false %>
-      <%= link_to "Je participe", new_event_attendance_path(:event_id => @event.id ), :class => "btn btn-primary btn-lg"  %>
+      <%= link_to "Je participe", new_event_attendance_path(:event_id => @event.id ), :class => "btn btn-info btn-lg"  %>
 
 
 
@@ -74,7 +74,7 @@
 
 
       <%else%> 
-      <%= link_to "Déjà inscrit", user_path(:id => @user), :class => "btn btn-primary btn-lg"  %>
+      <%= link_to "Déjà inscrit", user_path(:id => @user), :class => "btn btn-info btn-lg"  %>
       <%end%>
       </div>
     </div>
